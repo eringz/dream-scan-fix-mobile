@@ -1,0 +1,42 @@
+# IDE - Android Studio & IntelliJ
+.idea/
+*.iml
+.gradle/
+build/
+capture/
+local.properties
+
+# Android Output
+*.apk
+*.aar
+*.ap_
+*.der
+
+# Unit Test & Coverage
+/captures/
+/test-results/
+/test-reports/
+
+# OS Specific
+.DS_Store
+Thumbs.db
+
+# Project Specific
+# Never ignore your libs.versions.toml, but ignore generated build files
+app/build/
+captured/
+
+# Secrets (Dito natin ilalagay ang mga API keys kung sakaling magdagdag tayo sa future)
+secrets.xml
+google-services.json
+
+# Navigation component generated files
+.navigation/
+
+# Log files
+*.log
+
+# Keystore files (IMPORTANT: Never commit your production keys)
+*.jks
+*.keystore
+*.p12

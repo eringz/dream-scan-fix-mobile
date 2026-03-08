@@ -2,4 +2,6 @@
 plugins {
     alias(libs.plugins.androidApplication) apply false
     alias(libs.plugins.jetbrainsKotlinAndroid) apply false
+    // Define the Compose Compiler plugin here
+    id("org.jetbrains.kotlin.plugin.compose") version "2.3.10" apply false
 }

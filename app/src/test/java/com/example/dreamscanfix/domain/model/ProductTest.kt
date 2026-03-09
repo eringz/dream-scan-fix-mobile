@@ -2,12 +2,11 @@ package com.example.dreamscanfix.domain.model
 
 import org.junit.Assert.*
 import org.junit.Test
-import org.junit.Assert.assertNotEquals
+
 
 
 class ProductTest {
 
-    // TEST FOR UNIQUE ID
     @Test
     fun `product should generate unique ids when instantiated`() {
         val product1 = Product(title = "Item 1")
@@ -17,7 +16,13 @@ class ProductTest {
 
     }
 
-    // test for correct data
+    @Test
+    fun `product price should be in positive value`() {
+        val product = Product(title = "Invalid Item", price = 5.0)
+
+        assertTrue("Price should be zero or positive",product.price >= 0.0)
+    }
+
     @Test
     fun `product should hold correct canvassing data`() {
         val testTitle = "Mechanical Keyboard"
@@ -38,15 +43,7 @@ class ProductTest {
 
     }
 
-    // TEST FOR VALUES ALLOWED IN PRICE
-    @Test
-    fun `product price should be in positive value`() {
-        val product = Product(title = "Invalid Item", price = 5.0)
 
-        assertTrue("Price should be zero or positive",product.price >= 0.0)
-    }
-
-    // TEST FOR DEFAULT TIMESTAMPS
     @Test
     fun `product should have valid default timestamps`() {
         val currentTime = System.currentTimeMillis()
@@ -61,7 +58,7 @@ class ProductTest {
         val original = Product(title = "Coffee", price = 50.0)
         val newTime = System.currentTimeMillis() + 5000
 
-        // Gamit ang .copy(), isang field lang ang babaguhin natin
+
         val updated = original.copy(price = 55.0, updatedAt = newTime)
 
         assertEquals(original.id, updated.id) // Dapat same ID pa rin

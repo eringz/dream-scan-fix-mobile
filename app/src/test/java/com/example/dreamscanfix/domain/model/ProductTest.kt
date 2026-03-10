@@ -13,7 +13,6 @@ class ProductTest {
         val product2 = Product(title ="Item 2")
 
         assertNotEquals(product1.id, product2.id)
-
     }
 
     @Test

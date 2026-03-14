@@ -8,7 +8,16 @@ class SearchProductUseCase (
     private val repository: ProductRepository
 ) {
     suspend operator fun invoke(query: String, type: SearchType): Result<List<Product>> {
-        if (query.isBlank()) return Result.failure(Exception("Search query cannot be Empty"))
+        if (query.isBlank()) {
+            val errorMessage = when (type) {
+                SearchType.BARCODE -> "Barcode is Empty"
+                SearchType.OBJECT -> "Image URL is Empty"
+                SearchType.MANUAL -> "Search query is Empty"
+            }
+            return Result.failure(IllegalArgumentException(errorMessage))
+        }
+
+
 
         return when (type) {
             SearchType.BARCODE -> repository.searchProductByBarcode(query)

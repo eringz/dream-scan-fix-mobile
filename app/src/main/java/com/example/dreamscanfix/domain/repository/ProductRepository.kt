@@ -8,7 +8,7 @@ interface ProductRepository {
     // Scanning and Web Scrapping
     suspend fun searchProductByBarcode(barcode: String): Result<List<Product>>
     suspend fun searchProductByObject(imageUrl: String): Result<List<Product>>
-    suspend fun searchProductByManual(quer: String): Result<List<Product>>
+    suspend fun searchProductByManual(query: String): Result<List<Product>>
 
     // Inventory
     fun getInventory(): Flow<List<Product>>

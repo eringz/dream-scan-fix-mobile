@@ -1,4 +1,10 @@
 package com.example.dreamscanfix.data.remote
 
-class ProductDto {
-}
+data class ProductDto (
+    val title: String,
+    val price: Double,
+    val imageUrl: String,
+    val shopUrl: String
+)
+
+

@@ -17,6 +17,7 @@ objectDetection = "17.0.2"
 roomRuntimeAndroid = "2.8.4"
 androidxBrowser = "1.9.0"
 
+
 [libraries]
 androidx-camera-camera2 = { module = "androidx.camera:camera-camera2", version.ref = "cameraCamera2" }
 androidx-camera-lifecycle = { module = "androidx.camera:camera-lifecycle", version.ref = "cameraCamera2" }

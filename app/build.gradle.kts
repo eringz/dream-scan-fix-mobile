@@ -88,4 +88,7 @@ dependencies {
 
     // Android Browser
     implementation(libs.androidx.browser)
+
+    // Scrapping
+
 }

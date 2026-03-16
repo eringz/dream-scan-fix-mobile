@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.androidApplication)
-    id("org.jetbrains.kotlin.plugin.compose") version "2.3.10"
+    id("org.jetbrains.kotlin.plugin.compose") version "2.3.20"
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.legacy.kapt)
 }
 
 android {
@@ -34,11 +36,6 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
-    kotlin {
-        compilerOptions {
-            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
-        }
-    }
     buildFeatures {
         compose = true
     }
@@ -90,5 +87,9 @@ dependencies {
     implementation(libs.androidx.browser)
 
     // Scrapping
+    implementation(libs.jsoup)
 
+    // Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
 }

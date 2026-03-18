@@ -31,11 +31,11 @@ class ProductRepositoryImpl (
 
     override suspend fun searchProductByManual(query: String): Result<List<Product>> {
         return try {
-            val apiResults = apiService.searchByText(query)
+//            val apiResults = apiService.searchByText(query)
+//            val combined = (apiResults + scrapedResults).map { it.toDomain() }
             val scrapedResults = scraperEngine.executeParallelScrape(query)
-
-            val combined = (apiResults + scrapedResults).map { it.toDomain() }
-            Result.success(combined.sortedBy { it.price })
+            val domainProducts = scrapedResults.map { it.toDomain() }
+            Result.success(domainProducts)
         } catch (e: Exception) {
             if (e is kotlinx.coroutines.CancellationException) throw e
             Result.failure(e)

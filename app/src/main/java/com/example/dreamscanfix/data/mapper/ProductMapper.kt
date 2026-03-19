@@ -3,7 +3,6 @@ package com.example.dreamscanfix.data.mapper
 import com.example.dreamscanfix.data.remote.ProductDto
 import com.example.dreamscanfix.domain.model.Product
 import com.example.dreamscanfix.domain.model.SearchType
-import okio.Okio.source
 
 fun ProductDto.toDomain(type: SearchType = SearchType.MANUAL): Product {
     return Product(

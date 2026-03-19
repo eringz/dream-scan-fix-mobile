@@ -6,7 +6,7 @@ data class Product (
     val id: String = UUID.randomUUID().toString(),
     val barcode: String? = null,
     val title: String,
-    val price: Double = 0.0,
+    val price: Double? = 0.0,
     val currency: String = "PHP",
     val imageUrl: String? = null,
     val shopUrl: String? = null,
@@ -16,7 +16,9 @@ data class Product (
 ) {
     init {
         require(title.isNotBlank()) { "Title cannot be blank" }
-        require(price >= 0) { "Price must be a positive value"}
+        if (price != null) {
+            require(price >= 0) { "Price must be a positive value"}
+        }
     }
 }
 
